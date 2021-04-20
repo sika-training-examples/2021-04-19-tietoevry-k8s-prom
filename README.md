@@ -11,14 +11,10 @@ git clone git@github.com:ondrejsika/ondrejsika-k8s-prom.git
 cd ondrejsika-k8s-prom
 ```
 
-Setup helm, longhorn, consul, ingress, maildev
+Setup helm
 
 ```
 make helm
-make longhorn
-make consul
-make ingress
-make maildev
 ```
 
 Create CRDs
