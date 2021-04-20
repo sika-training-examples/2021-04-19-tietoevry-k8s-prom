@@ -52,7 +52,14 @@ metadata:
   name: metrics-example
   labels:
     app: metrics-example
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  tls:
+  - hosts:
+    - example.os.cf01.eu
+    secretName: tls-examle
   rules:
     - host: example.os.cf01.eu
       http:

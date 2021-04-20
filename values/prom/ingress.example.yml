@@ -1,25 +1,46 @@
 prometheus:
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt
+    tls:
+      - secretName: tls-prometheus
+        hosts:
+          - prometheus.os.cf01.eu
     hosts:
-      - prometheus.k8s.sikademo.com # --- PROMETHEUS DOMAIN ---
+      - prometheus.os.cf01.eu # --- PROMETHEUS DOMAIN ---
     paths:
       - /
 
 grafana:
   ingress:
     enabled: true
-    annotations: {}
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt
+    tls:
+      - secretName: tls-grafana
+        hosts:
+          - grafana.os.cf01.eu
+
     hosts:
-      - grafana.k8s.sikademo.com # --- GRAFANA DOMAIN ---
+      - grafana.os.cf01.eu # --- GRAFANA DOMAIN ---
     paths:
       - /
 
 alertmanager:
   ingress:
     enabled: true
-    annotations: {}
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt
+    tls:
+      - secretName: tls-alertmanager
+        hosts:
+          - alertmanager.os.cf01.eu
+
     hosts:
-      - alertmanager.k8s.sikademo.com # --- ALERTMANAGER DOMAIN ---
+      - alertmanager.os.cf01.eu # --- ALERTMANAGER DOMAIN ---
     paths:
       - /
